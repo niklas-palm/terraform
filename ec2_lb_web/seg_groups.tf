@@ -3,7 +3,7 @@ resource "aws_security_group" "web_server" {
   vpc_id = "${aws_vpc.TerraformVPC.id}"
 
   ingress {
-    protocol    = "http"
+    protocol    = "tcp"
     from_port   = 80
     to_port     = 80
     cidr_blocks = ["0.0.0.0/0"]
@@ -23,7 +23,7 @@ resource "aws_security_group" "alb" {
 
 
   ingress {
-    protocol    = "http"
+    protocol    = "tcp"
     from_port   = 80
     to_port     = 80
     cidr_blocks = ["0.0.0.0/0"]
