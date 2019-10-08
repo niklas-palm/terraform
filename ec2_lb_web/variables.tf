@@ -5,7 +5,7 @@
 variable "names" {
   type = "map"
     default = {
-      "vpc"  = "TerraformCPV"
+      "vpc"  = "TerraformVPC"
       "somethingElse" = "testName"
   }
 }

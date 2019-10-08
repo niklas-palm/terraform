@@ -35,4 +35,4 @@ terraform destroy -auto-approve
 ## Samples
 
 ### /ec2_lb_web
-Creates a VPC in two AZs with one public and one private subnet in each, with a loadbalancer directing trafic to an autoscaling group, where at least two instances are running.
+Creates a VPC in two AZs with one public and one private subnet in each, with a loadbalancer directing trafic to an autoscaling group, where at least two instances are running. Edit variables.tf to change region etc.
