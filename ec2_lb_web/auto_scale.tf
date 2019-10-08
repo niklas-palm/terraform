@@ -1,23 +1,23 @@
 # Create ami
 
-data "aws_ami" "myOwnAMI" {
+data "aws_ami" "amazonLinux" {
   most_recent = true
-  owners = ["self"]
+  owners = ["amazon"]
 
-  filter {
-    name   = "name"
-    values = ["terraT*"]
-  }
+ filter {
+   name   = "name"
+   values = ["amzn2-ami-hvm*"]
+ }
 }
 
 # Create launch config
 
 resource "aws_launch_configuration" "as_conf" {
   name = "terraform-launch-config"
-  image_id      = "${data.aws_ami.myOwnAMI.id}"
+  image_id      = "${data.aws_ami.amazonLinux.id}"
   instance_type = "t2.micro"
   security_groups    = ["${aws_security_group.web_server.id}"]
-#   user_data       = "${file("user_data.txt")}"
+  user_data       = "${file("user_data.txt")}"
 
   lifecycle {
     create_before_destroy = true
